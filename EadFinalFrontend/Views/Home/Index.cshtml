@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EadFinalFrontend.ServiceReference1.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Ajax.BeginForm("SearchAjax", "Employee",
+                new AjaxOptions
+                {
+                    InsertionMode = InsertionMode.Replace,
+                    HttpMethod = "Get",
+                    OnFailure = "failed",
+                    UpdateTargetId = "results",
+                }))
+{
+    <p>
+        Search: @Html.TextBox("keyword")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table" id="results">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div id="failed">An error occured. Please try again later.</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}
