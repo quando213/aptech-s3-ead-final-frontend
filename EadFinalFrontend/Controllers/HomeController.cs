@@ -1,6 +1,7 @@
 ﻿using EadFinalFrontend.ServiceReference1;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -32,7 +33,7 @@ namespace EadFinalFrontend.Controllers
         [HttpPost]
         public ActionResult Create(Employee employee)
         {
-            var result = service.AddEmployee(employee);
+            var result = service.AddEmployee(employee.Name, employee.Salary, employee.Department);
             if (!result)
             {
                 return View("Error");

@@ -184,10 +184,10 @@ namespace EadFinalFrontend.ServiceReference1 {
         System.Threading.Tasks.Task<EadFinalFrontend.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(EadFinalFrontend.ServiceReference1.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddEmployee", ReplyAction="http://tempuri.org/IService1/AddEmployeeResponse")]
-        bool AddEmployee(EadFinalFrontend.ServiceReference1.Employee employee);
+        bool AddEmployee(string name, double salary, string department);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddEmployee", ReplyAction="http://tempuri.org/IService1/AddEmployeeResponse")]
-        System.Threading.Tasks.Task<bool> AddEmployeeAsync(EadFinalFrontend.ServiceReference1.Employee employee);
+        System.Threading.Tasks.Task<bool> AddEmployeeAsync(string name, double salary, string department);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SearchEmployees", ReplyAction="http://tempuri.org/IService1/SearchEmployeesResponse")]
         EadFinalFrontend.ServiceReference1.Employee[] SearchEmployees(string keyword);
@@ -239,12 +239,12 @@ namespace EadFinalFrontend.ServiceReference1 {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
-        public bool AddEmployee(EadFinalFrontend.ServiceReference1.Employee employee) {
-            return base.Channel.AddEmployee(employee);
+        public bool AddEmployee(string name, double salary, string department) {
+            return base.Channel.AddEmployee(name, salary, department);
         }
         
-        public System.Threading.Tasks.Task<bool> AddEmployeeAsync(EadFinalFrontend.ServiceReference1.Employee employee) {
-            return base.Channel.AddEmployeeAsync(employee);
+        public System.Threading.Tasks.Task<bool> AddEmployeeAsync(string name, double salary, string department) {
+            return base.Channel.AddEmployeeAsync(name, salary, department);
         }
         
         public EadFinalFrontend.ServiceReference1.Employee[] SearchEmployees(string keyword) {

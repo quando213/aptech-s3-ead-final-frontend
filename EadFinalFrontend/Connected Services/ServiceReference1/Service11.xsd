@@ -33,7 +33,9 @@
   <xs:element name="AddEmployee">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/EadFinal.Models" minOccurs="0" name="employee" nillable="true" type="q3:Employee" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="salary" type="xs:double" />
+        <xs:element minOccurs="0" name="department" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -54,7 +56,7 @@
   <xs:element name="SearchEmployeesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/EadFinal.Models" minOccurs="0" name="SearchEmployeesResult" nillable="true" type="q4:ArrayOfEmployee" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/EadFinal.Models" minOccurs="0" name="SearchEmployeesResult" nillable="true" type="q3:ArrayOfEmployee" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

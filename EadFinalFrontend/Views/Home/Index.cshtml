@@ -10,12 +10,11 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-@using (Ajax.BeginForm("SearchAjax", "Employee",
+@using (Ajax.BeginForm("SearchAjax", "Home",
                 new AjaxOptions
                 {
                     InsertionMode = InsertionMode.Replace,
                     HttpMethod = "Get",
-                    OnFailure = "failed",
                     UpdateTargetId = "results",
                 }))
 {
@@ -54,8 +53,6 @@
     }
 
 </table>
-
-<div id="failed">An error occured. Please try again later.</div>
 
 @section scripts{
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
